@@ -6,19 +6,31 @@ sources:
     tables:
       - name: raw_cc_funnel
         description: the client funnel for circle clothing
+        freshness: 
+          warn_after: {count: 90, period: day}
+        loaded_at_field: "CAST(date_lead AS TIMESTAMP)"
       - name: raw_cc_funnel_priority
         description: the priority for each lead 
 
 models:
   - name: stg_cc_funnel
-    columns:
-      - name: company
-        tests:
-          - unique
-          - not_null
-      - name: date_lead
-        tests:
-          - not_null
+    # columns:
+    #   - name: company
+    #     tests:
+    #       - unique
+    #       - not_null
+    #   - name: date_lead
+    #     tests:
+    #       - not_null
+    tests:
+      - not_null:
+          column_name:
+            - company
+            - date_lead
+      - unique:
+          column_name:
+            - company
+
   - name: stg_cc_funnel_priority
     columns:
       - name: company
