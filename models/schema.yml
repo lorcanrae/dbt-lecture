@@ -15,22 +15,22 @@ sources:
 models:
   - name: stg_cc_funnel
     description: staging model with minor transformations
-    # columns:
-    #   - name: company
-    #     tests:
-    #       - unique
-    #       - not_null
-    #   - name: date_lead
-    #     tests:
-    #       - not_null
-    tests:
-      - not_null:
-          column_name:
-            - company
-            - date_lead
-      - unique:
-          column_name:
-            - company
+    columns:
+      - name: company
+        tests:
+          - unique
+          - not_null
+      - name: date_lead
+        tests:
+          - not_null
+    # tests:
+    #   - not_null:
+    #       column_name:
+    #         - company
+    #         - date_lead
+    #   - unique:
+    #       column_name:
+    #         - company
 
   - name: stg_cc_funnel_priority
     columns:
