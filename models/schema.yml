@@ -23,15 +23,7 @@ models:
       - name: date_lead
         tests:
           - not_null
-    # tests:
-    #   - not_null:
-    #       column_name:
-    #         - company
-    #         - date_lead
-    #   - unique:
-    #       column_name:
-    #         - company
-
+          
   - name: stg_cc_funnel_priority
     columns:
       - name: company
